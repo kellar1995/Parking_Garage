@@ -26,13 +26,14 @@ class Garage:
                 returned_tickets = self.currect_tickets["unpaid"].pop(ticket)
                 self.ticket.append(returned_tickets["ticket"])
                 self.spaces.append(returned_tickets["space"])
+            else:
+                print("That is an invalid ticket number. Please try again.")
 
 
 
 
-        pay = self.currect_tickets["unpaid"][1]["ticket"].pop(num)
-        if num not in self.currect_tickets["unpaid"][0]["ticket"]:
-            print("That is an invalid ticket number. Please try again.")
+        # pay = self.currect_tickets["unpaid"][1]["ticket"].pop(num)
+        # if num not in self.currect_tickets["unpaid"][0]["ticket"]:
 
         #self.current_tickets{
         #   "unpaid" : [
