@@ -36,10 +36,12 @@ class Garage:
         for y in range(len(self.current_tickets["unpaid"])):
             if self.current_tickets["unpaid"][y]["ticket"] == goodbye:
                 print("Please pay for your ticket first.")
-        for x in self.ticket:
-            if x == goodbye:
-                print("Thank you, have a nice day!")
-                break
+            else: 
+                print ("Thank you, have a nice day!")
+        # for x in self.ticket:
+        #     if x == goodbye:
+        #         print("Thank you, have a nice day!")
+        #         break
                 
 
         # pay = self.currect_tickets["unpaid"][1]["ticket"].pop(num)
