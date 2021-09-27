@@ -26,6 +26,7 @@ class Garage:
                 returned_tickets = self.current_tickets["unpaid"].pop(ticket)
                 self.ticket.append(returned_tickets["ticket"])
                 self.spaces.append(returned_tickets["space"])
+                print("Thank you for paying. Please exit the garage within 15 minutes.")
             else:
                 print("That is an invalid ticket number. Please try again.")
 
@@ -34,13 +35,12 @@ class Garage:
         goodbye = int(input("What is your ticket number?"))
         for y in range(len(self.current_tickets["unpaid"])):
             if self.current_tickets["unpaid"][y]["ticket"] == goodbye:
-                print("Please pay for your ticket first. Redirecting you to the pay portal now.")
-                
-
+                print("Please pay for your ticket first.")
         for x in self.ticket:
             if x == goodbye:
                 print("Thank you, have a nice day!")
                 break
+                
 
         # pay = self.currect_tickets["unpaid"][1]["ticket"].pop(num)
         # if num not in self.currect_tickets["unpaid"][0]["ticket"]:
@@ -87,11 +87,14 @@ def run():
         if enter == "yes":
             our_garage.take_ticket()
         elif enter == "no":
-            print("Please turn around.")
-            break
+            existing = input("Would you like to pay for an existing ticket?")
+            if existing == "yes":
+                our_garage.pay_for_parking()
+            else:
+                print("Please turn around.")
         else:
             print("That is not a valid response.")
-
+        
         choice = input("Would you like to take another ticket, pay for your ticket, or leave the garage?").lower()
         if choice == "take":
             our_garage.take_ticket()
@@ -99,6 +102,17 @@ def run():
             our_garage.pay_for_parking()
         elif choice == "leave":
             our_garage.leave_garage()
+
+        choice_2 = input("Would you like to take another ticket, pay for your ticket, leave the garage, or start over?").lower()
+        if choice_2 == "take":
+            our_garage.take_ticket()
+        if choice_2 == "pay":
+            our_garage.pay_for_parking()
+        elif choice_2 == "leave":
+            our_garage.leave_garage()
+        elif choice_2 == "start over":
+            continue
+
 
 
 run()        
